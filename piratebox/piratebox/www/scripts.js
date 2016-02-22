@@ -117,6 +117,7 @@ function refresh_time_sb () {
 function post_shoutbox () {
         $("#send-button").prop('value', 'Sending...');
         $("#send-button").prop('disabled', true);
+	if ($('#shoutbox-input .nickname').val() == '') {$('#shoutbox-input .nickname').val('Anonymous')}
 
         $.post("/cgi-bin/psowrte.py" , $("#sb_form").serialize())
         .success(function() {
